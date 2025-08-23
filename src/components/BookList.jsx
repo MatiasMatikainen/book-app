@@ -1,29 +1,34 @@
 export default function BookList({ books, onRemove }) {
-  if (books.length === 0) {
-    return <p className="text-gray-600">No books added yet.</p>;
-  }
+ if (books.length === 0) {
+  return (
+    <div className="flex justify-center items-center w-screen min-h-screen text-xl text-gray-500">
+      No books added yet
+    </div>
+  );
+}
 
   return (
-    <ul className="space-y-2">
-      {books.map((book) => (
-        <li
-          key={book.id}
-          className="flex justify-between items-center border p-2 rounded"
-        >
-          <div>
-            <p className="font-semibold">{book.title}</p>
-            <p className="text-sm text-gray-600">
-              {book.author} ({book.year})
-            </p>
-          </div>
-          <button
-            onClick={() => onRemove(book.id)}
-            className="text-red-500 hover:underline"
-          >
-            Delete
-          </button>
-        </li>
-      ))}
-    </ul>
+    <table className="w-full mt-6">
+      <thead>
+        <tr>
+          <th className="text-left px-4 py-2">Title</th>
+          <th className="text-left px-4 py-2">Author</th>
+          <th className="text-left px-4 py-2">Year</th>
+          <th className="text-left px-4 py-2">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {books.map((book, idx) => (
+          <tr key={idx}>
+            <th className="px-4 py-2">{book.title}</th>
+            <th className="px-4 py-2">{book.author}</th>
+            <th className="px-4 py-2">{book.year}</th>
+            <th className="px-4 py-2">
+              <button onClick={() => onRemove(book.id)} className="text-red-600">Delete</button>
+            </th>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 }
