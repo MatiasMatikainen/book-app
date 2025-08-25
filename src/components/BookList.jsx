@@ -1,9 +1,7 @@
 export default function BookList({ books, onRemove }) {
  if (books.length === 0) {
   return (
-    <div className="flex justify-center items-center w-screen min-h-screen text-xl text-gray-500">
-      No books added yet
-    </div>
+    <div className="no-books-message">No books added yet</div>
   );
 }
 
@@ -24,7 +22,11 @@ export default function BookList({ books, onRemove }) {
             <th className="px-4 py-2">{book.author}</th>
             <th className="px-4 py-2">{book.year}</th>
             <th className="px-4 py-2">
-              <button onClick={() => onRemove(book.id)} className="text-red-600">Delete</button>
+              <button onClick={() => onRemove(book.id)} className="delete" title="Delete">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24">
+                  <path fill="currentColor" d="M9 3v1H4v2h16V4h-5V3H9zm-4 6v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9H5zm2 2h2v8H7v-8zm4 0h2v8h-2v-8zm4 0h-2v8h2v-8z"/>
+                </svg>
+              </button>
             </th>
           </tr>
         ))}
