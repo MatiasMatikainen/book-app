@@ -1,8 +1,30 @@
 .container {
-  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   font-family: Arial, sans-serif;
+}
+
+.header {
+  position: relative; 
+  margin-bottom: 20px;
+  text-align: center; 
+}
+
+.title {
+  font-size: 40px;
+  margin: 0;
+}
+
+.search {
+  position: absolute;
+  left: 0;
+  top: 600%;
+  transform: translateY(-50%);
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 250px;
 }
 
 .no-books-message {
@@ -91,4 +113,14 @@ button.delete {
 
 button.delete:hover {
   background-color: #b02a37;
+}
+
+@media (max-width: 600px) {
+  .search {
+    position: static;
+    display: block;
+    margin: 10px auto 0 auto; /* keskittää alle */
+    transform: none;
+    width: 90%; /* vie lähes koko leveys mobiilissa */
+  }
 }

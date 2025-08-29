@@ -5,7 +5,7 @@ export default function BookList({ books, onRemove }) {
 
   if (books.length === 0) {
     return (
-      <div className="no-books-message">No books added yet</div>
+      <div className="no-books-message">No books found</div>
     );
   }
 

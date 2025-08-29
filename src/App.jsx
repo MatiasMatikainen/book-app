@@ -14,6 +14,8 @@ export default function App() {
     }
   });
 
+  const [searchTerm, setSearchTerm] = useState("");
+
   useEffect(() => {
     localStorage.setItem("books", JSON.stringify(books));
   }, [books]);
@@ -26,11 +28,26 @@ export default function App() {
     setBooks(books.filter((book) => book.id !== id));
   };
 
+  const filteredBooks = books.filter((book) =>
+    book.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
-    <div className="p-6 max-w-xl mx-auto">
-      <h1 className="text-3xl font-bold mb-4">📚 Book App</h1>
+    <div className="container">
+      <header className="header">
+  <h1 className="title">📚 Book App</h1>
+  <input
+    type="text"
+    className="search"
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
+    placeholder="Search by Title..."
+  />
+</header>
+
+
       <AddBookForm onAdd={addBook} />
-      <BookList books={books} onRemove={removeBook} />
+      <BookList books={filteredBooks} onRemove={removeBook} />
     </div>
   );
 }

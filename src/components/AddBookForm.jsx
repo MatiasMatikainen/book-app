@@ -45,7 +45,7 @@ export default function AddBookForm({ onAdd }) {
         />
       </div>
 
-      <button className="bg-cyan-700 text-white w-48 py-2 hover:bg-cyan-800">
+      <button className="bg-cyan-700 text-white w-48 py-2 hover:bg-cyan-800 rounded">
         Submit
       </button>
     </form>
