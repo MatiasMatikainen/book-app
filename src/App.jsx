@@ -28,6 +28,14 @@ export default function App() {
     setBooks(books.filter((book) => book.id !== id));
   };
 
+  const editBook = (id, updatedBook) => {
+    setBooks(
+      books.map((book) =>
+        book.id === id ? { ...book, ...updatedBook } : book
+      )
+    );
+  };
+
   const filteredBooks = books.filter((book) =>
     book.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -35,19 +43,18 @@ export default function App() {
   return (
     <div className="container">
       <header className="header">
-  <h1 className="title">📚 Book App</h1>
-  <input
-    type="text"
-    className="search"
-    value={searchTerm}
-    onChange={(e) => setSearchTerm(e.target.value)}
-    placeholder="Search by Title..."
-  />
-</header>
-
+        <h1 className="title">📚 Book App</h1>
+        <input
+          type="text"
+          className="search"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          placeholder="Search by Title..."
+        />
+      </header>
 
       <AddBookForm onAdd={addBook} />
-      <BookList books={filteredBooks} onRemove={removeBook} />
+      <BookList books={filteredBooks} onRemove={removeBook} onEdit={editBook} />
     </div>
   );
 }

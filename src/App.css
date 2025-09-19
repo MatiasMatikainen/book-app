@@ -17,8 +17,8 @@
 
 .search {
   position: absolute;
-  left: 0;
-  top: 600%;
+  left: 20px;    
+  top: 600%;        
   transform: translateY(-50%);
   padding: 8px 12px;
   font-size: 14px;
@@ -26,6 +26,7 @@
   border-radius: 4px;
   width: 250px;
 }
+
 
 .no-books-message {
   display: flex;
@@ -119,8 +120,8 @@ button.delete:hover {
   .search {
     position: static;
     display: block;
-    margin: 10px auto 0 auto; /* keskittää alle */
+    margin: 10px auto 0 auto; 
     transform: none;
-    width: 90%; /* vie lähes koko leveys mobiilissa */
+    width: 90%; 
   }
 }
