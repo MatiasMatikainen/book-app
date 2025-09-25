@@ -43,7 +43,7 @@ export default function App() {
   return (
     <div className="container">
       <header className="header">
-        <h1 className="title">📚 Book App</h1>
+        <h1 className="title">📚 Booklist</h1>
         <input
           type="text"
           className="search"
